@@ -15,7 +15,7 @@ class QuestionController {
 	}
 
 	def show(String id) {
-		def questionInstance = questionService.getQuestion(id)
+		def questionInstance = Question.get(id)
 
 		def answers = questionInstance.answers.sort { a,b -> b.voteCount <=> a.voteCount }
 
