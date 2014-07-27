@@ -32,11 +32,20 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${questionInstance?.question}">
+				<g:if test="${questionInstance?.text}">
 				<li class="fieldcontain">
-					<span id="question-label" class="property-label"><g:message code="question.question.label" default="Question" /></span>
+					<span id="text-label" class="property-label"><g:message code="question.text.label" default="Text" /></span>
 					
-						<span class="property-value" aria-labelledby="question-label"><g:fieldValue bean="${questionInstance}" field="question"/></span>
+						<span class="property-value" aria-labelledby="text-label"><g:fieldValue bean="${questionInstance}" field="text"/></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${questionInstance?.title}">
+				<li class="fieldcontain">
+					<span id="title-label" class="property-label"><g:message code="question.title.label" default="Title" /></span>
+					
+						<span class="property-value" aria-labelledby="title-label"><g:fieldValue bean="${questionInstance}" field="title"/></span>
 					
 				</li>
 				</g:if>

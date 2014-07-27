@@ -11,12 +11,21 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: questionInstance, field: 'question', 'error')} required">
-	<label for="question">
-		<g:message code="question.question.label" default="Question" />
+<div class="fieldcontain ${hasErrors(bean: questionInstance, field: 'text', 'error')} required">
+	<label for="text">
+		<g:message code="question.text.label" default="Text" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:textField name="question" required="" value="${questionInstance?.question}"/>
+	<g:textField name="text" required="" value="${questionInstance?.text}"/>
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: questionInstance, field: 'title', 'error')} required">
+	<label for="title">
+		<g:message code="question.title.label" default="Title" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:textField name="title" required="" value="${questionInstance?.title}"/>
 
 </div>
 

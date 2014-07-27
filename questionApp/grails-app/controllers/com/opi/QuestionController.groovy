@@ -6,6 +6,8 @@ import grails.transaction.Transactional
 @Transactional(readOnly = true)
 class QuestionController {
 
+	def questionService
+
 	static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
 	def index(Integer max) {
@@ -38,14 +40,14 @@ class QuestionController {
 			return
 		}
 
-		questionInstance.save flush: true
+		Question question = questionService.saveQuestion(questionInstance)
 
 		request.withFormat {
 			form multipartForm {
-				flash.message = message(code: 'default.created.message', args: [message(code: 'question.label', default: 'Question'), questionInstance.id])
-				redirect questionInstance
+				flash.message = message(code: 'default.created.message', args: [message(code: 'question.label', default: 'Question'), question.id])
+				redirect question
 			}
-			'*' { respond questionInstance, [status: CREATED] }
+			'*' { respond question, [status: CREATED] }
 		}
 	}
 
